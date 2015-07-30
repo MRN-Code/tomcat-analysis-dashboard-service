@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:general" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:general" xmlns:intf="urn:general" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns2="http://general" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://general" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="RowObject">
+    <sequence>
+     <element name="ID" type="xsd:int"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="label" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="RowWrapper">
+    <sequence>
+     <element name="error" type="xsd:int"/>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="rows" nillable="true" type="impl:ArrayOf_tns2_RowObject"/>
+    </sequence>
+   </complexType>
+   <complexType name="WebServiceResponse">
+    <sequence>
+     <element name="error" type="xsd:boolean"/>
+     <element name="errorCode" type="xsd:int"/>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="response" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="urn:general" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns2_RowObject">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns2:RowObject[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getScannersRequest">
+
+      <wsdl:part name="in0" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="validURSIRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getConditionsResponse">
+
+      <wsdl:part name="getConditionsReturn" type="tns2:RowWrapper"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudyCodesResponse">
+
+      <wsdl:part name="getStudyCodesReturn" type="tns2:RowWrapper"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addScanEventResponse">
+
+      <wsdl:part name="addScanEventReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addStudyCodeRequest">
+
+      <wsdl:part name="in0" type="xsd:int"/>
+
+      <wsdl:part name="in1" type="xsd:string"/>
+
+      <wsdl:part name="in2" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setScanDateRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+      <wsdl:part name="in1" type="xsd:int"/>
+
+      <wsdl:part name="in2" type="xsd:string"/>
+
+      <wsdl:part name="in3" type="xsd:string"/>
+
+      <wsdl:part name="in4" type="xsd:string"/>
+
+      <wsdl:part name="in5" type="xsd:dateTime"/>
+
+      <wsdl:part name="in6" type="xsd:float"/>
+
+      <wsdl:part name="in7" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getURSIwithExtIDRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+      <wsdl:part name="in1" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudiesResponse">
+
+      <wsdl:part name="getStudiesReturn" type="tns2:RowWrapper"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addScanEventRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudyCodesRequest">
+
+      <wsdl:part name="in0" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getScannerStationScannerIDRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getConditionsRequest">
+
+      <wsdl:part name="in0" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setScanDateResponse">
+
+      <wsdl:part name="setScanDateReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addStudyConditionResponse">
+
+      <wsdl:part name="addStudyConditionReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getScannersResponse">
+
+      <wsdl:part name="getScannersReturn" type="tns2:RowWrapper"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getScannerStationScannerIDResponse">
+
+      <wsdl:part name="getScannerStationScannerIDReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addStudyConditionRequest">
+
+      <wsdl:part name="in0" type="xsd:int"/>
+
+      <wsdl:part name="in1" type="xsd:string"/>
+
+      <wsdl:part name="in2" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getURSIwithExtIDResponse">
+
+      <wsdl:part name="getURSIwithExtIDReturn" type="tns2:WebServiceResponse"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addScanEventResponse1">
+
+      <wsdl:part name="addScanEventReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addScanEventRequest1">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+      <wsdl:part name="in1" type="xsd:string"/>
+
+      <wsdl:part name="in2" type="xsd:long"/>
+
+      <wsdl:part name="in3" type="xsd:string"/>
+
+      <wsdl:part name="in4" type="xsd:long"/>
+
+      <wsdl:part name="in5" type="xsd:dateTime"/>
+
+      <wsdl:part name="in6" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="validURSIResponse">
+
+      <wsdl:part name="validURSIReturn" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudiesRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="addStudyCodeResponse">
+
+      <wsdl:part name="addStudyCodeReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="GeneralServices">
+
+      <wsdl:operation name="validURSI" parameterOrder="in0">
+
+         <wsdl:input message="impl:validURSIRequest" name="validURSIRequest"/>
+
+         <wsdl:output message="impl:validURSIResponse" name="validURSIResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getScanners" parameterOrder="in0">
+
+         <wsdl:input message="impl:getScannersRequest" name="getScannersRequest"/>
+
+         <wsdl:output message="impl:getScannersResponse" name="getScannersResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudies">
+
+         <wsdl:input message="impl:getStudiesRequest" name="getStudiesRequest"/>
+
+         <wsdl:output message="impl:getStudiesResponse" name="getStudiesResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getConditions" parameterOrder="in0">
+
+         <wsdl:input message="impl:getConditionsRequest" name="getConditionsRequest"/>
+
+         <wsdl:output message="impl:getConditionsResponse" name="getConditionsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudyCodes" parameterOrder="in0">
+
+         <wsdl:input message="impl:getStudyCodesRequest" name="getStudyCodesRequest"/>
+
+         <wsdl:output message="impl:getStudyCodesResponse" name="getStudyCodesResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addStudyCode" parameterOrder="in0 in1 in2">
+
+         <wsdl:input message="impl:addStudyCodeRequest" name="addStudyCodeRequest"/>
+
+         <wsdl:output message="impl:addStudyCodeResponse" name="addStudyCodeResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addStudyCondition" parameterOrder="in0 in1 in2">
+
+         <wsdl:input message="impl:addStudyConditionRequest" name="addStudyConditionRequest"/>
+
+         <wsdl:output message="impl:addStudyConditionResponse" name="addStudyConditionResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setScanDate" parameterOrder="in0 in1 in2 in3 in4 in5 in6 in7">
+
+         <wsdl:input message="impl:setScanDateRequest" name="setScanDateRequest"/>
+
+         <wsdl:output message="impl:setScanDateResponse" name="setScanDateResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addScanEvent" parameterOrder="in0">
+
+         <wsdl:input message="impl:addScanEventRequest" name="addScanEventRequest"/>
+
+         <wsdl:output message="impl:addScanEventResponse" name="addScanEventResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addScanEvent" parameterOrder="in0 in1 in2 in3 in4 in5 in6">
+
+         <wsdl:input message="impl:addScanEventRequest1" name="addScanEventRequest1"/>
+
+         <wsdl:output message="impl:addScanEventResponse1" name="addScanEventResponse1"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getScannerStationScannerID" parameterOrder="in0">
+
+         <wsdl:input message="impl:getScannerStationScannerIDRequest" name="getScannerStationScannerIDRequest"/>
+
+         <wsdl:output message="impl:getScannerStationScannerIDResponse" name="getScannerStationScannerIDResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getURSIwithExtID" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getURSIwithExtIDRequest" name="getURSIwithExtIDRequest"/>
+
+         <wsdl:output message="impl:getURSIwithExtIDResponse" name="getURSIwithExtIDResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="GeneralSoapBinding" type="impl:GeneralServices">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="validURSI">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validURSIRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validURSIResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getScanners">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getScannersRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getScannersResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStudiesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStudiesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getConditions">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getConditionsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getConditionsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudyCodes">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStudyCodesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStudyCodesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addStudyCode">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addStudyCodeRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addStudyCodeResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addStudyCondition">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addStudyConditionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addStudyConditionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setScanDate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setScanDateRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setScanDateResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addScanEvent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addScanEventRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addScanEventResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addScanEvent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addScanEventRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addScanEventResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getScannerStationScannerID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getScannerStationScannerIDRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getScannerStationScannerIDResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getURSIwithExtID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getURSIwithExtIDRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getURSIwithExtIDResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:general" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="GeneralServicesService">
+
+      <wsdl:port binding="impl:GeneralSoapBinding" name="General">
+
+         <wsdlsoap:address location="https://portal.mind.unm.edu/webservices/services/General"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

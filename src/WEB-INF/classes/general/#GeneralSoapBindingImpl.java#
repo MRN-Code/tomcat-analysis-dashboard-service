@@ -1,0 +1,31 @@
+/**
+ * GeneralSoapBindingImpl.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis WSDL2Java emitter.
+ */
+
+package general;
+
+public class GeneralSoapBindingImpl implements general.GeneralServices{
+    public boolean validURSI(java.lang.String in0) throws java.rmi.RemoteException {
+        return URSI.validURSI.;
+    }
+
+    public general.RowWrapper getScanners(java.lang.String in0) throws java.rmi.RemoteException {
+        return null;
+    }
+
+    public general.RowWrapper getStudies() throws java.rmi.RemoteException {
+        return null;
+    }
+
+    public general.RowWrapper getConditions(int in0) throws java.rmi.RemoteException {
+        return null;
+    }
+
+    public general.RowWrapper getStudyCodes(int in0) throws java.rmi.RemoteException {
+        return null;
+    }
+
+}

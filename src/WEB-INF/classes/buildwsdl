@@ -1,0 +1,7 @@
+#!/bin/bash
+AXIS_HOME=/var/app/tomcat/webapps/webservices/WEB-INF
+AXIS_LIB=$AXIS_HOME/lib
+AXISCLASSPATH=$AXIS_LIB/axis.jar:$AXIS_LIB/commons-discovery.jar:$AXIS_LIB/commons-logging.jar:$AXIS_LIB/jaxrpc.jar:$AXIS_LIB/saaj.jar:$AXIS_LIB/log4j-1.2.8.jar:$AXIS_LIB/xml-apis.jar:$AXIS_LIB/xercesImpl.jar:/var/app/tomcat/common/lib/wsdl4j.jar
+export AXIS_HOME; export AXIS_LIB; export AXISCLASSPATH
+/usr/java/bin/java -cp $AXISCLASSPATH:. org.apache.axis.wsdl.Java2WSDL -o general.wsdl -l"https://portal.mind.unm.edu/webservices/services/General" -n "urn:general" -p"URSI" "urn:general" -p"Conditions" "urn:general" -p"Database" "urn:general" -p"ScanDate" "urn:general" -p"ScanEvent" "urn:general" -p"Scanners" "urn:general" -p"ScannerStation" "urn:general" -p"Studies" "urn:general" -p"StudyCodes" "urn:general" -p"Utilities" "urn:general" general.GeneralServices
+/usr/java/bin/java -cp $AXISCLASSPATH:. org.apache.axis.wsdl.WSDL2Java -o . -d Session -s -S true -Nurn:general general general.wsdl

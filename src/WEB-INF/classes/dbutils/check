@@ -1,0 +1,19 @@
+Note: dbutils/DBHandler.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+dbutils/ws/DbutilsSoapBindingStub.java:26: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+(use -source 5 or higher to use 'enum' as a keyword)
+        oper.setStyle(org.apache.axis.enum.Style.RPC);
+                                      ^
+dbutils/ws/DbutilsSoapBindingStub.java:27: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+(use -source 5 or higher to use 'enum' as a keyword)
+        oper.setUse(org.apache.axis.enum.Use.ENCODED);
+                                    ^
+dbutils/ws/DbutilsSoapBindingStub.java:36: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+(use -source 5 or higher to use 'enum' as a keyword)
+        oper.setStyle(org.apache.axis.enum.Style.RPC);
+                                      ^
+dbutils/ws/DbutilsSoapBindingStub.java:37: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+(use -source 5 or higher to use 'enum' as a keyword)
+        oper.setUse(org.apache.axis.enum.Use.ENCODED);
+                                    ^
+4 warnings

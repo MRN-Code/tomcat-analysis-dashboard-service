@@ -1,0 +1,10 @@
+# Create environment for axis build:
+AXIS_HOME=/var/app/tomcat5/webapps/webservices/WEB-INF
+AXIS_LIB=$AXIS_HOME/lib
+NEW_LIB=/var/app/tomcat5/shared/lib
+AXISCLASSPATH=$NEW_LIB/axis.jar:$AXIS_LIB/commons-discovery.jar:$AXIS_LIB/commons-logging.jar:$AXIS_LIB/jaxrpc.jar:$AXIS_LIB/saaj.jar:$AXIS_LIB/log4j-1.2.8.jar:$AXIS_LIB/xml-apis.jar:$AXIS_LIB/xercesImpl.jar:$AXIS_LIB/wsdl4j.jar:$AXIS_LIB/ojdbc14.jar
+CASTORCP=$AXIS_LIB/castor-0.9.5.4.jar:$AXIS_LIB/castor-0.9.5.4-xml.jar
+export AXIS_HOME; export AXIS_LIB; export AXISCLASSPATH; export CASTORCP;
+
+## Compile source for service
+#javac -classpath $AXISCLASSPATH:$CASTORCP:dbutils:. dbutils/*.java

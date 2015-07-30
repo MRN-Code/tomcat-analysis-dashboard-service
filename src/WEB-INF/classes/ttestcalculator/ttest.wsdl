@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:ttestcalculator" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:ttestcalculator" xmlns:intf="urn:ttestcalculator" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="urn:ttestcalculator" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_double">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:double[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="ttestRequest">
+
+      <wsdl:part name="in0" type="impl:ArrayOf_xsd_double"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="ttestResponse">
+
+      <wsdl:part name="ttestReturn" type="xsd:double"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TtestCalculator">
+
+      <wsdl:operation name="ttest" parameterOrder="in0">
+
+         <wsdl:input message="impl:ttestRequest" name="ttestRequest"/>
+
+         <wsdl:output message="impl:ttestResponse" name="ttestResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ttestcalculatorSoapBinding" type="impl:TtestCalculator">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="ttest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ttestRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ttestcalculator" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ttestResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ttestcalculator" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TtestCalculatorService">
+
+      <wsdl:port binding="impl:ttestcalculatorSoapBinding" name="ttestcalculator">
+
+         <wsdlsoap:address location="http://jl/webservices/services/ttestcalculator"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

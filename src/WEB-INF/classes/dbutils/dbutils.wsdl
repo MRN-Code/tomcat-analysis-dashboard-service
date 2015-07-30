@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="urn:dbutils" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:dbutils" xmlns:intf="urn:dbutils" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:dbutils" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_soapenc_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="soapenc:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <message name="getStudiesResponse">
+
+      <part name="getStudiesReturn" type="impl:ArrayOf_soapenc_string"/>
+
+   </message>
+
+   <message name="getRadiologistWorklistPathsRequest">
+
+      <part name="in0" type="impl:ArrayOf_soapenc_string"/>
+
+   </message>
+
+   <message name="getRecruitmentStudiesResponse">
+
+      <part name="getRecruitmentStudiesReturn" type="impl:ArrayOf_soapenc_string"/>
+
+   </message>
+
+   <message name="getRecruitmentStudiesRequest">
+
+   </message>
+
+   <message name="getStudiesRequest">
+
+   </message>
+
+   <message name="getRadiologistWorklistPathsResponse">
+
+      <part name="getRadiologistWorklistPathsReturn" type="impl:ArrayOf_soapenc_string"/>
+
+   </message>
+
+   <portType name="DBService">
+
+      <operation name="getStudies">
+
+         <input message="impl:getStudiesRequest" name="getStudiesRequest"/>
+
+         <output message="impl:getStudiesResponse" name="getStudiesResponse"/>
+
+      </operation>
+
+      <operation name="getRecruitmentStudies">
+
+         <input message="impl:getRecruitmentStudiesRequest" name="getRecruitmentStudiesRequest"/>
+
+         <output message="impl:getRecruitmentStudiesResponse" name="getRecruitmentStudiesResponse"/>
+
+      </operation>
+
+      <operation name="getRadiologistWorklistPaths" parameterOrder="in0">
+
+         <input message="impl:getRadiologistWorklistPathsRequest" name="getRadiologistWorklistPathsRequest"/>
+
+         <output message="impl:getRadiologistWorklistPathsResponse" name="getRadiologistWorklistPathsResponse"/>
+
+      </operation>
+
+   </portType>
+
+   <binding name="dbutilsSoapBinding" type="impl:DBService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <operation name="getStudies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <input name="getStudiesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:dbutils" use="encoded"/>
+
+         </input>
+
+         <output name="getStudiesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:dbutils" use="encoded"/>
+
+         </output>
+
+      </operation>
+
+      <operation name="getRecruitmentStudies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <input name="getRecruitmentStudiesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:dbutils" use="encoded"/>
+
+         </input>
+
+         <output name="getRecruitmentStudiesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:dbutils" use="encoded"/>
+
+         </output>
+
+      </operation>
+
+      <operation name="getRadiologistWorklistPaths">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <input name="getRadiologistWorklistPathsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:dbutils" use="encoded"/>
+
+         </input>
+
+         <output name="getRadiologistWorklistPathsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:dbutils" use="encoded"/>
+
+         </output>
+
+      </operation>
+
+   </binding>
+
+   <service name="DBServiceService">
+
+      <port binding="impl:dbutilsSoapBinding" name="dbutils">
+
+         <wsdlsoap:address location="http://localhost/webservices/services/dbutils"/>
+
+      </port>
+
+   </service>
+
+</definitions>

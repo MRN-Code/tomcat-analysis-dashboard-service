@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+  <analysis ID="fBIRNPhaseII__0010 001029291693 scanVisit__0002 MRI__0001 t1 FreeSurfer recon-all" type="FreeSurfer recon-all" projectID="fBIRNPhaseII__0010" subjectID="001029291693" visitID="scanVisit__0002" studyID="MRI__0001" episodeID="t1">
+    <provenance>
+      <processStep>
+        <program>/Applications/freesurfer/bin//recon-all</program>
+        <programArguments>-autorecon-all -s 001029291693_visit1</programArguments>
+        <timeStamp>2006-09-08T17:12:16-07:00</timeStamp>
+        <user>jsegall</user>
+        <hostName>newton.mind.unm.edu</hostName>
+        <architecture>powerpc</architecture>
+        <platform>Darwin Kernel Version 8.7.0: Fri May 26 15:20:53 PDT 2006; root:xnu-792.6.76.obj~1/RELEASE_PPC</platform>
+        <cvs>$Id: recon-all,v 1.17.2.4 2006/05/02 18:28:49 nicks Exp $</cvs>
+        <package>FreeSurfer</package>
+      </processStep>
+      <processStep>
+        <program>fsstats2xcede.pl</program>
+        <programArguments>--projectid="fBIRNPhaseII__0010" --subjectid="001029291693" --visitid="scanVisit__0002" --studyid="MRI__0001" --episodeid="t1" aseg.stats</programArguments>
+        <timeStamp>2008-08-08T16:07:00-05:00</timeStamp>
+        <user>gadde</user>
+        <hostName>varese.dhe.duke.edu</hostName>
+        <architecture>i386</architecture>
+        <platform>Linux</platform>
+      </processStep>
+      <processStep>
+        <program>fsstats2xcede.pl</program>
+        <programArguments>--projectid="fBIRNPhaseII__0010" --subjectid="001029291693" --visitid="scanVisit__0002" --studyid="MRI__0001" --episodeid="t1" lh.aparc.stats</programArguments>
+        <timeStamp>2008-08-08T16:07:00-05:00</timeStamp>
+        <user>gadde</user>
+        <hostName>varese.dhe.duke.edu</hostName>
+        <architecture>i386</architecture>
+        <platform>Linux</platform>
+      </processStep>
+      <processStep>
+        <program>fsstats2xcede.pl</program>
+        <programArguments>--projectid="fBIRNPhaseII__0010" --subjectid="001029291693" --visitid="scanVisit__0002" --studyid="MRI__0001" --episodeid="t1" lh.aparc.a2005s.stats</programArguments>
+        <timeStamp>2008-08-08T16:07:00-05:00</timeStamp>
+        <user>gadde</user>
+        <hostName>varese.dhe.duke.edu</hostName>
+        <architecture>i386</architecture>
+        <platform>Linux</platform>
+      </processStep>
+      <processStep>
+        <program>fsstats2xcede.pl</program>
+        <programArguments>--projectid="fBIRNPhaseII__0010" --subjectid="001029291693" --visitid="scanVisit__0002" --studyid="MRI__0001" --episodeid="t1" rh.aparc.stats</programArguments>
+        <timeStamp>2008-08-08T16:07:00-05:00</timeStamp>
+        <user>gadde</user>
+        <hostName>varese.dhe.duke.edu</hostName>
+        <architecture>i386</architecture>
+        <platform>Linux</platform>
+      </processStep>
+      <processStep>
+        <program>fsstats2xcede.pl</program>
+        <programArguments>--projectid="fBIRNPhaseII__0010" --subjectid="001029291693" --visitid="scanVisit__0002" --studyid="MRI__0001" --episodeid="t1" rh.aparc.a2005s.stats</programArguments>
+        <timeStamp>2008-08-08T16:07:00-05:00</timeStamp>
+        <user>gadde</user>
+        <hostName>varese.dhe.duke.edu</hostName>
+        <architecture>i386</architecture>
+        <platform>Linux</platform>
+      </processStep>
+    </provenance>
+
+    <input projectID="fBIRNPhaseII__0010" subjectID="001029291693" visitID="scanVisit__0002" studyID="MRI__0001" episodeID="t1" acquisitionID="MR" />
+
+    <output analysisID="fBIRNPhaseII__0010 001029291693 scanVisit__0002 MRI__0001 t1 FreeSurfer aseg.stats (XML)" analysisURI="aseg.stats.xml"/>
+    <output analysisID="fBIRNPhaseII__0010 001029291693 scanVisit__0002 MRI__0001 t1 FreeSurfer lh.aparc.a2005s.stats (XML)" analysisURI="lh.aparc.a2005s.stats.xml" />
+    <output analysisID="fBIRNPhaseII__0010 001029291693 scanVisit__0002 MRI__0001 t1 FreeSurfer lh.aparc.stats (XML)" analysisURI="lh.aparc.stats.xml" />
+    <output analysisID="fBIRNPhaseII__0010 001029291693 scanVisit__0002 MRI__0001 t1 FreeSurfer rh.aparc.a2005s.stats (XML)" analysisURI="rh.aparc.a2005s.stats.xml" />
+    <output analysisID="fBIRNPhaseII__0010 001029291693 scanVisit__0002 MRI__0001 t1 FreeSurfer rh.aparc.stats (XML)" analysisURI="rh.aparc.stats.xml" />
+  </analysis>

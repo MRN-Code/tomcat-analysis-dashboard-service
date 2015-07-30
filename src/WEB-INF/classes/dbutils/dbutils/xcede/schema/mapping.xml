@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+<description>A mapping file for our Address Book application</description>
+
+<class name="dbutils.xcede.schema.ProcessStep">
+   <field name="program" type="string" />
+   <field name="programArguments" type="string" />
+   <field name="timeStamp" type="string" />
+   <field name="user" type="string" />
+   <field name="hostName" type="string" />
+   <field name="architecture" type="string" />
+   <field name="platform" type="string" />
+   <field name="cvs" type="string" />
+   <field name="package" type="string" />
+</class>
+
+<class name="dbutils.xcede.schema.Provenance">
+   <field name="processSteps" type="dbutils.xcede.schema.ProcessStep" collection="collection" >
+      <bind-xml name="processStep" />
+   </field>
+</class>
+
+<class name="dbutils.xcede.schema.Input">
+   <field name="projectID" type="string" >
+		<bind-xml name="projectID" node="attribute" />
+   </field>
+   <field name="subjectID" type="string" >
+		<bind-xml name="subjectID" node="attribute" />
+   </field>
+   <field name="studyID" type="string" >
+		<bind-xml name="studyID" node="attribute" />
+   </field>
+   <field name="visitID" type="string" >
+		<bind-xml name="visitID" node="attribute" />
+   </field>
+   <field name="episodeID" type="string" >
+		<bind-xml name="episodeID" node="attribute" />
+   </field>
+   <field name="acquisitionID" type="string" >
+		<bind-xml name="acquisitionID" node="attribute" />
+   </field>
+</class>
+<class name="dbutils.xcede.schema.Output">
+   <field name="analysisID" type="string" >
+		<bind-xml name="analysisID" node="attribute" />
+   </field>
+   <field name="analysisURI" type="string" >
+		<bind-xml name="analysisURI" node="attribute" />
+   </field>
+</class>
+<class name="dbutils.xcede.schema.Analysis">
+   <field name="ID" type="string" >
+		<bind-xml name="ID" node="attribute" />
+   </field>
+   <field name="type" type="string" >
+		<bind-xml name="type" node="attribute" />
+   </field>
+   <field name="projectID" type="string" >
+		<bind-xml name="projectID" node="attribute" />
+   </field>
+   <field name="subjectID" type="string" >
+		<bind-xml name="subjectID" node="attribute" />
+   </field>
+   <field name="visitID" type="string" >
+		<bind-xml name="visitID" node="attribute" />
+   </field>
+   <field name="studyID" type="string" >
+		<bind-xml name="studyID" node="attribute" />
+   </field>
+   <field name="episodeID" type="string" >
+		<bind-xml name="episodeID" node="attribute" />
+   </field>
+   <field name="inputs" type="dbutils.xcede.schema.Input" collection="collection" />
+   <field name="outputs" type="dbutils.xcede.schema.Output" collection="collection" />
+   <field name="provenance" type="dbutils.xcede.schema.Provenance" />
+</class>
+   
+
+</mapping>

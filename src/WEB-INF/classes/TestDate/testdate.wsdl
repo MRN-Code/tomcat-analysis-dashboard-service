@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:testdate" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:testdate" xmlns:intf="urn:testdate" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+   <wsdl:message name="testDateTimeResponse">
+
+      <wsdl:part name="testDateTimeReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="testDateTimeRequest">
+
+      <wsdl:part name="in0" type="xsd:dateTime"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TestDateTime">
+
+      <wsdl:operation name="testDateTime" parameterOrder="in0">
+
+         <wsdl:input message="impl:testDateTimeRequest" name="testDateTimeRequest"/>
+
+         <wsdl:output message="impl:testDateTimeResponse" name="testDateTimeResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TestDateSoapBinding" type="impl:TestDateTime">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="testDateTime">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testDateTimeRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:testdate" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testDateTimeResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:testdate" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TestDateTimeService">
+
+      <wsdl:port binding="impl:TestDateSoapBinding" name="TestDate">
+
+         <wsdlsoap:address location="http://jl.mind.unm.edu/webservices/services/TestDate"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

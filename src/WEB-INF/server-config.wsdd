@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="disablePrettyXML" value="true"/>
+  <parameter name="adminPassword" value="admin"/>
+  <parameter name="attachments.Directory" value="/var/app/tomcat/webapps/webservices/WEB-INF/attachments"/>
+  <parameter name="axis.sendMinimizedElements" value="true"/>
+  <parameter name="enableNamespacePrefixOptimization" value="true"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration>
+ <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <service name="Assessment" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="wsdlPortType" value="AcceptAssessor"/>
+  <parameter name="wsdlServicePort" value="Assessment"/>
+  <parameter name="className" value="acceptAssessment.ws.AssessmentSoapBindingSkeleton"/>
+  <parameter name="wsdlTargetNamespace" value="urn:ws"/>
+  <parameter name="wsdlServiceElement" value="AcceptAssessorService"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns1:RowObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:acceptAssessment.RowObject" xmlns:ns1="urn:acceptAssessment"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns2:ArrayOf_xsd_int" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:int[]" xmlns:ns2="urn:ws"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns3:RowWrapper" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:acceptAssessment.RowWrapper" xmlns:ns3="urn:acceptAssessment"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns4:ArrayOf_tns1_RowObject" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:acceptAssessment.RowObject[]" xmlns:ns4="urn:ws"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns5:ArrayOf_tns1_XMLObject" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:acceptAssessment.XMLObject[]" xmlns:ns5="urn:ws"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns6:XMLSourceWrapper" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:acceptAssessment.XMLSourceWrapper" xmlns:ns6="urn:acceptAssessment"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns7:XMLObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:acceptAssessment.XMLObject" xmlns:ns7="urn:acceptAssessment"/>
+ </service>
+ <service name="dbutils" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="wsdlPortType" value="DBService"/>
+  <parameter name="typeMappingVersion" value="1.2"/>
+  <parameter name="wsdlServicePort" value="dbutils"/>
+  <parameter name="className" value="dbutils.ws.DbutilsSoapBindingSkeleton"/>
+  <parameter name="scope" value="Session"/>
+  <parameter name="wsdlTargetNamespace" value="urn:dbutils"/>
+  <parameter name="wsdlServiceElement" value="DBServiceService"/>
+ </service>
+ <service name="General" provider="java:RPC">
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="wsdlPortType" value="GeneralServices"/>
+  <parameter name="scope" value="Session"/>
+  <parameter name="className" value="general.GeneralSoapBindingSkeleton"/>
+  <parameter name="wsdlServicePort" value="General"/>
+  <parameter name="wsdlTargetNamespace" value="urn:general"/>
+  <parameter name="wsdlServiceElement" value="GeneralServicesService"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns8:ArrayOf_tns2_RowObject" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:general.RowObject[]" xmlns:ns8="urn:general"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns9:RowWrapper" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:general.RowWrapper" xmlns:ns9="http://general"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns10:WebServiceResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:general.WebServiceResponse" xmlns:ns10="http://general"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns11:RowObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:general.RowObject" xmlns:ns11="http://general"/>
+ </service>
+ <service name="fsutils" provider="java:RPC">
+  <parameter name="wsdlServicePort" value="fsutils"/>
+  <parameter name="className" value="fsutilsPK.ws.FsutilsSoapBindingSkeleton"/>
+  <parameter name="typeMappingVersion" value="1.2"/>
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="wsdlServiceElement" value="fsutilsService"/>
+  <parameter name="wsdlTargetNamespace" value="urn:fsutils"/>
+  <parameter name="wsdlPortType" value="fsutils"/>
+  <parameter name="scope" value="Session"/>
+  <parameter name="schemaUnqualified" value="http://xml.apache.org/xml-soap,urn:fsutils"/>
+  <arrayMapping innerType="soapenc:string" languageSpecificType="java:java.lang.String[]" qname="ns12:ArrayOf_soapenc_string" xmlns:ns12="urn:fsutils" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"/>
+ </service>
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+ <transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+  <parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>
