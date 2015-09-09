@@ -19,3 +19,4 @@ network storage safely.
 1. (re)start tomcat
 
 # For further questions, ask Runtang :-)
+# To do: move the /var/www/html/dataLink to /coins/tomcat-analysis-dashboard-service/dataLink
